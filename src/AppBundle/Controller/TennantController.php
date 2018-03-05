@@ -127,9 +127,22 @@ class TennantController extends Controller
         $form = $this->createDeleteForm($tennant);
         $form->handleRequest($request);
 
+        $name = null;
+        $workingHours = null;
+        $description = null;
+        $photo = null;
+        $updatedAt = null;
+
+        $tennant->setName($name);
+        $tennant->setWorkinghours($workingHours);
+        $tennant->setDescription($description);
+        $tennant->setImageName($photo);
+        $tennant->setImageFile($photo);
+        $tennant->setUpdatedAt($updatedAt);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($tennant);
+            $em->persist($tennant);
             $em->flush();
         }
 
