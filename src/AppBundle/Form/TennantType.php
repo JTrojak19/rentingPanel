@@ -14,7 +14,7 @@ class TennantType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('workinghours')->add('description')->add('imageFile', VichImageType::class)->add('updatedAt');
+        $builder->add('name')->add('workinghours')->add('description')->add('imageFile', VichImageType::class);
     }/**
      * {@inheritdoc}
      */

@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tennant
@@ -37,6 +38,7 @@ class Tennant
      * @var string
      *
      * @ORM\Column(name="workinghours", type="string", length=255)
+     * @Assert\Regex("/[0-9]+-[0-9]+/")
      */
     private $workinghours;
 
