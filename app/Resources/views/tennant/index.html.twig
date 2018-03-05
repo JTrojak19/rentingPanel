@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tennants list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Workinghours</th>
+                <th>Description</th>
+                <th>Imagename</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tennant in tennants %}
+            <tr>
+                <td><a href="{{ path('tennant_show', { 'id': tennant.id }) }}">{{ tennant.id }}</a></td>
+                <td>{{ tennant.name }}</td>
+                <td>{{ tennant.workinghours }}</td>
+                <td>{{ tennant.description }}</td>
+                <td><img src="{{ vich_uploader_asset(tennant, 'imageFile', 'AppBundle\\Entity\\Tennant') }}" alt="{{ tennant.imageName }}"/></td>
+                <td>{% if tennant.updatedAt %}{{ tennant.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tennant_show', { 'id': tennant.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tennant_edit', { 'id': tennant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tennant_new') }}">Create a new tennant</a>
+        </li>
+    </ul>
+{% endblock %}
