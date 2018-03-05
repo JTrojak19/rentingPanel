@@ -11,7 +11,6 @@
                 <th>Workinghours</th>
                 <th>Description</th>
                 <th>Imagename</th>
-                <th>Updatedat</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,7 +22,6 @@
                 <td>{{ tennant.workinghours }}</td>
                 <td>{{ tennant.description }}</td>
                 <td><img src="{{ vich_uploader_asset(tennant, 'imageFile', 'AppBundle\\Entity\\Tennant') }}" alt="{{ tennant.imageName }}"/></td>
-                <td>{% if tennant.updatedAt %}{{ tennant.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>

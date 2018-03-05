@@ -25,10 +25,6 @@
                 <th>Imagename</th>
                 <td><img src="{{ vich_uploader_asset(tennant, 'imageFile', 'AppBundle\\Entity\\Tennant') }}" alt="{{ tennant.imageName }}"/></td>
             </tr>
-            <tr>
-                <th>Updatedat</th>
-                <td>{% if tennant.updatedAt %}{{ tennant.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
         </tbody>
     </table>
 
