@@ -129,10 +129,11 @@ class TennantController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $dql = "";
+            $em->remove($tennant);
+            $em->flush();
         }
 
-        //return $this->redirectToRoute('tennant_index');
+        return $this->redirectToRoute('tennant_index');
     }
 
     /**

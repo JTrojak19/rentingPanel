@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>Imagename</th>
-                <td>{{ tennant.imageName }}</td>
+                <td><img src="{{ vich_uploader_asset(tennant, 'imageFile', 'AppBundle\\Entity\\Tennant') }}" alt="{{ tennant.imageName }}"/></td>
             </tr>
             <tr>
                 <th>Updatedat</th>
